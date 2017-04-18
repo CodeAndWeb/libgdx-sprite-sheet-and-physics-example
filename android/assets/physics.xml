@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- created with https://www.codeandweb.com/physicseditor -->
+<bodydef>
+
+	<body name="banana">
+		<is_dynamic/>
+		<linear_damping>0</linear_damping>
+		<angular_damping>0</angular_damping>
+		<allow_sleep/>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>106.0000, 127.0000, 91.0000, 124.0000, 94.0000, 104.0000, 104.0000, 108.0000</polygon>
+			<polygon>1.0000, 23.0000, 15.0000, 12.0000, 44.0000, 1.0000, 64.0000, 1.0000, 102.0000, 18.0000, 48.0000, 38.0000, 4.0000, 34.0000</polygon>
+			<polygon>102.0000, 18.0000, 122.0000, 48.0000, 67.0000, 48.0000, 48.0000, 38.0000</polygon>
+			<polygon>94.0000, 104.0000, 92.0000, 87.0000, 122.0000, 48.0000, 125.0000, 81.0000, 104.0000, 108.0000</polygon>
+			<polygon>92.0000, 87.0000, 82.0000, 67.0000, 122.0000, 48.0000</polygon>
+			<polygon>82.0000, 67.0000, 67.0000, 48.0000, 122.0000, 48.0000</polygon>
+		</fixture>
+	</body>
+
+	<body name="cherries">
+		<is_dynamic/>
+		<linear_damping>0</linear_damping>
+		<angular_damping>0</angular_damping>
+		<allow_sleep/>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="41.964" y="26.254" r="22.023"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="30.785" y="35.921" r="15.524"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="37.706" y="25.650" r="23.000"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="100.876" y="25.952" r="22.023"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="100.272" y="22.600" r="22.000"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="90.302" y="26.556" r="18.000"/>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>8.0000, 120.0000, 16.0000, 108.0000, 24.0000, 105.0000, 21.0000, 117.0000</polygon>
+			<polygon>76.0000, 108.0000, 65.0000, 120.0000, 52.0000, 124.0000, 24.0000, 105.0000, 22.0000, 101.0000, 38.0000, 92.0000, 61.0000, 92.0000</polygon>
+			<polygon>21.0000, 117.0000, 24.0000, 105.0000, 52.0000, 124.0000</polygon>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>85.0000, 98.0000, 92.0000, 107.0000, 84.0000, 114.0000, 77.0000, 108.0000</polygon>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>76.0000, 96.0000, 61.0000, 91.0000, 46.0000, 73.0000, 53.0000, 73.0000</polygon>
+			<polygon>53.0000, 73.0000, 46.0000, 73.0000, 41.0000, 49.0000, 45.0000, 49.0000</polygon>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>84.0000, 97.0000, 77.0000, 95.0000, 79.0000, 64.0000, 84.0000, 82.0000</polygon>
+			<polygon>84.0000, 82.0000, 79.0000, 64.0000, 85.0000, 64.0000</polygon>
+			<polygon>79.0000, 64.0000, 87.0000, 46.0000, 92.0000, 47.0000, 85.0000, 64.0000</polygon>
+		</fixture>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<polygon>77.0000, 108.0000, 61.0000, 91.0000, 86.0000, 98.0000</polygon>
+		</fixture>
+	</body>
+
+	<body name="orange">
+		<is_dynamic/>
+		<linear_damping>0</linear_damping>
+		<angular_damping>0</angular_damping>
+		<allow_sleep/>
+		<fixture>
+			<density>2</density>
+			<friction>0.2</friction>
+			<restitution>0.2</restitution>
+			<filter_category_bits>1</filter_category_bits>
+			<filter_mask_bits>65535</filter_mask_bits>
+			<filter_group_index>0</filter_group_index>
+			<circle x="64.320" y="61.601" r="61.000"/>
+		</fixture>
+	</body>
+
+	<metadata>
+		<format>1</format>
+		<ptm_ratio>32</ptm_ratio>
+	</metadata>
+
+</bodydef>
+

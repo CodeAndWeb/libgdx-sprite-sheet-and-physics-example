@@ -1,0 +1,26 @@
+sprites.png
+size: 251, 255
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+banana
+  rotate: false
+  xy: 1, 1
+  size: 127, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+cherries
+  rotate: false
+  xy: 130, 1
+  size: 120, 125
+  orig: 128, 128
+  offset: 5, 0
+  index: -1
+orange
+  rotate: false
+  xy: 1, 131
+  size: 127, 123
+  orig: 128, 128
+  offset: 1, 0
+  index: -1
