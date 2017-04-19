@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.graphics.g3d.utils.ShapeCache;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -68,25 +67,6 @@ public class PhysicsGame extends ApplicationAdapter {
   static final int COUNT = 25;
 
   /**
-   * Used to cache our sprites so we only have to load them in when the game
-   * first starts. For a production-worthy game I would recommend using a
-   * {@link com.badlogic.gdx.assets.AssetManager} instead of this.
-   */
-  final HashMap<String, Sprite> sprites = new HashMap<String, Sprite>();
-
-  /**
-   * Used to draw the collision polygons to the screen for debugging purposes.
-   * This is disabled by default, but can be enabled by uncommenting a line in
-   * {@link #render()}.
-   */
-  Box2DDebugRenderer debugRenderer;
-
-  /**
-   * Parses XML data exported from PhysicsEditor into Box2D bodies.
-   */
-  PhysicsShapeCache physicsBodies;
-
-  /**
    * Used to convert our sprite sheet found at android/assets/sprites.png and
    * described in android/assets/sprites.txt into {@link Sprite} objects.
    */
@@ -96,6 +76,13 @@ public class PhysicsGame extends ApplicationAdapter {
    * Used to draw the sprites to the screen.
    */
   SpriteBatch batch;
+
+  /**
+   * Used to cache our sprites so we only have to load them in when the game
+   * first starts. For a production-worthy game I would recommend using a
+   * {@link com.badlogic.gdx.assets.AssetManager} instead of this.
+   */
+  final HashMap<String, Sprite> sprites = new HashMap<String, Sprite>();
 
   /**
    * A 2D camera. This is required for scaling our sprites. It is managed by
@@ -113,6 +100,18 @@ public class PhysicsGame extends ApplicationAdapter {
    * Our Box2D physics world.
    */
   World world;
+
+  /**
+   * Used to draw the collision polygons to the screen for debugging purposes.
+   * This is disabled by default, but can be enabled by uncommenting a line in
+   * {@link #render()}.
+   */
+  Box2DDebugRenderer debugRenderer;
+
+  /**
+   * Parses XML data exported from PhysicsEditor into Box2D bodies.
+   */
+  PhysicsShapeCache physicsBodies;
 
   /**
    * Used to fix our physics step time. You can read more on what that means in
@@ -210,10 +209,7 @@ public class PhysicsGame extends ApplicationAdapter {
    * @return A Box2D {@link Body}.
    */
   private Body createBody(String name, float x, float y, float rotation) {
-    BodyDef bodyDef = new BodyDef();
-    bodyDef.type = BodyDef.BodyType.DynamicBody;
-
-    Body body = physicsBodies.createBody(name, world, bodyDef, SCALE, SCALE);
+    Body body = physicsBodies.createBody(name, world, SCALE, SCALE);
     body.setTransform(x, y, rotation);
 
     return body;
