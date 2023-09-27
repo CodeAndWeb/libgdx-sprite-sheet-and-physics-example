@@ -23,6 +23,7 @@ import com.codeandweb.physicseditor.PhysicsShapeCache;
 import java.util.HashMap;
 import java.util.Random;
 
+
 public class PhysicsExample extends ApplicationAdapter {
     /**
      * This affects the speed of our simulation, and how gravity behaves. This is
@@ -30,7 +31,7 @@ public class PhysicsExample extends ApplicationAdapter {
      * doing in this tutorial. If you were simulating something that required
      * greater precision, such as planets orbiting a star, you would want to set
      * this to as high as double the frame rate, or 1/120.
-     * <p/>
+     *
      * Setting it to a higher rate will result in a smoother, but slower
      * simulation. Setting it to a lower value will result in a choppy frame
      * rate, but increase the amount of polygons the simulation can process.
@@ -47,10 +48,10 @@ public class PhysicsExample extends ApplicationAdapter {
     /**
      * This affects the way bodies react to collisions. A higher value improves
      * the simulations overlap resolution.
-     * <p/>
+     *
      * I recommend reading this article on the anatomy of a collision for a
      * clearer understanding of both velocity and position iterations:
-     * http://www.iforce2d.net/b2dtut/collision-anatomy
+     * https://www.iforce2d.net/b2dtut/collision-anatomy
      */
     static final int POSITION_ITERATIONS = 2;
 
@@ -138,24 +139,16 @@ public class PhysicsExample extends ApplicationAdapter {
 
     @Override
     public void create() {
-        Box2D.init();
-
-        batch = new SpriteBatch();
-
         camera = new OrthographicCamera();
-
         viewport = new ExtendViewport(50, 50, camera);
-
         textureAtlas = new TextureAtlas("sprites.txt");
-
+        batch = new SpriteBatch();
         loadSprites();
 
-        world = new World(new Vector2(0, -120), true);
-
+        Box2D.init();
+        world = new World(new Vector2(0, -40), true);
         physicsBodies = new PhysicsShapeCache("physics.xml");
-
         debugRenderer = new Box2DDebugRenderer();
-
         generateFruit();
     }
 
@@ -170,7 +163,6 @@ public class PhysicsExample extends ApplicationAdapter {
 
             float width = sprite.getWidth() * SCALE;
             float height = sprite.getHeight() * SCALE;
-
             sprite.setSize(width, height);
             sprite.setOrigin(0, 0);
 
@@ -183,23 +175,19 @@ public class PhysicsExample extends ApplicationAdapter {
      */
     private void generateFruit() {
         String[] fruitNames = new String[]{"banana", "cherries", "orange"};
-
         Random random = new Random();
 
         for (int i = 0; i < fruitBodies.length; i++) {
             String name = fruitNames[random.nextInt(fruitNames.length)];
-
-            fruitSprites[i] = sprites.get(name);
-
             float x = random.nextFloat() * 50;
-            float y = random.nextFloat() * 50 + 50;
-
+            float y = random.nextFloat() * 200 + 50;
+            fruitSprites[i] = sprites.get(name);
             fruitBodies[i] = createBody(name, x, y, 0);
         }
     }
 
     /**
-     * Uses {@link ShapeCache} to parse a body described in android/assets/physics.xml
+     * Uses {@link PhysicsShapeCache} to parse a body described in assets/physics.xml
      * into a Box2D {@link Body}.
      *
      * @param name     The name of the body exactly as it appears in the XML.
@@ -211,7 +199,6 @@ public class PhysicsExample extends ApplicationAdapter {
     private Body createBody(String name, float x, float y, float rotation) {
         Body body = physicsBodies.createBody(name, world, SCALE, SCALE);
         body.setTransform(x, y, rotation);
-
         return body;
     }
 
@@ -225,9 +212,7 @@ public class PhysicsExample extends ApplicationAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height, true);
-
         batch.setProjectionMatrix(camera.combined);
-
         createGround();
     }
 
@@ -239,21 +224,15 @@ public class PhysicsExample extends ApplicationAdapter {
         if (ground != null) world.destroyBody(ground);
 
         BodyDef bodyDef = new BodyDef();
-
         bodyDef.type = BodyDef.BodyType.StaticBody;
-
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.friction = 1;
-
         PolygonShape shape = new PolygonShape();
-
         shape.setAsBox(camera.viewportWidth, 1);
-
         fixtureDef.shape = shape;
 
         ground = world.createBody(bodyDef);
         ground.createFixture(fixtureDef);
-
         ground.setTransform(0, 0, 0);
 
         shape.dispose();
@@ -303,12 +282,10 @@ public class PhysicsExample extends ApplicationAdapter {
      */
     private void stepWorld() {
         float delta = Gdx.graphics.getDeltaTime();
-
         accumulator += Math.min(delta, 0.25f);
 
         if (accumulator >= STEP_TIME) {
             accumulator -= STEP_TIME;
-
             world.step(STEP_TIME, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
         }
     }
@@ -324,9 +301,7 @@ public class PhysicsExample extends ApplicationAdapter {
      */
     private void drawSprite(Sprite sprite, float x, float y, float degrees) {
         sprite.setPosition(x, y);
-
         sprite.setRotation(degrees);
-
         sprite.draw(batch);
     }
 
@@ -335,13 +310,11 @@ public class PhysicsExample extends ApplicationAdapter {
      */
     @Override
     public void dispose() {
-        textureAtlas.dispose();
-        batch.dispose();
-        sprites.clear();
-
-        world.dispose();
-
         debugRenderer.dispose();
+        world.dispose();
+        sprites.clear();
+        batch.dispose();
+        textureAtlas.dispose();
     }
 }
 
